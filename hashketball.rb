@@ -162,9 +162,9 @@ team.push(game_hash[:away][:team_name])
 end
 
 def player_numbers(players_team)
-    game_hash.each do |team, team_values|
-        if team_values[:team_name] == players_team
-            return team_values[:players].collect do |player|
+    game_hash.each do |home_away, team_info|
+        if team_info[:team_name] == players_team
+            return team_info[:players].collect do |player|
                 player[:number]
             end
         end
