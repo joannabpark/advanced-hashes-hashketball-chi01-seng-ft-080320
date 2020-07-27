@@ -182,15 +182,15 @@ def player_stats(player)
 end
 
 def big_shoe_rebounds
-  max = nil
-  rebounds = nil
-  game_hash.each do |home_away, team_info|
-    team_info[:players].each do |player|
-        if max == nil || player[:shoe] > max
-                max = player[:shoe]
+    big_shoe = 0
+    rebounds = 0
+    game_hash.each do |team, team_info|
+        team_info[:players].each do |player|
+            if player[:shoe] > big_shoe
+                big_shoe = player[:shoe]
                 rebounds = player[:rebounds]
             end
         end
     end
-    rebounds
+    return rebounds
 end
